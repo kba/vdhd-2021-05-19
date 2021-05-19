@@ -4,6 +4,12 @@
     <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="CREATOR">
       <mets:name>ocrd/core v2.23.3</mets:name>
     </mets:agent>
+    <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="OTHER" OTHERROLE="layout/segmentation/region">
+      <mets:name>ocrd-eynollah-segment v0.0.5</mets:name>
+    </mets:agent>
+    <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="OTHER" OTHERROLE="layout/segmentation/region">
+      <mets:name>ocrd-eynollah-segment v0.0.5</mets:name>
+    </mets:agent>
   </mets:metsHdr>
   <mets:dmdSec ID="DMDLOG_0001">
     <mets:mdWrap MDTYPE="MODS">
@@ -24,14 +30,24 @@
         <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="OCR-D-IMG/Silcher_Werkverzeichnis_s1.0000.tif"/>
       </mets:file>
     </mets:fileGrp>
+    <mets:fileGrp USE="SEG-EYNOLLAH6">
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-EYNOLLAH6_0002">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-EYNOLLAH6/SEG-EYNOLLAH6_0002.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-EYNOLLAH6_0001">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-EYNOLLAH6/SEG-EYNOLLAH6_0001.xml"/>
+      </mets:file>
+    </mets:fileGrp>
   </mets:fileSec>
   <mets:structMap TYPE="PHYSICAL">
     <mets:div TYPE="physSequence">
       <mets:div TYPE="page" ID="p0001">
         <mets:fptr FILEID="programmheft_10"/>
+        <mets:fptr FILEID="SEG-EYNOLLAH6_0001"/>
       </mets:div>
       <mets:div TYPE="page" ID="p0002">
         <mets:fptr FILEID="Silcher_Werkverzeichnis_s1"/>
+        <mets:fptr FILEID="SEG-EYNOLLAH6_0002"/>
       </mets:div>
     </mets:div>
   </mets:structMap>
