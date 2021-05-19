@@ -4,6 +4,15 @@
     <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="CREATOR">
       <mets:name>ocrd/core v2.23.3</mets:name>
     </mets:agent>
+    <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="OTHER" OTHERROLE="layout/segmentation/region">
+      <mets:name>ocrd-cis-ocropy-segment v0.1.5</mets:name>
+    </mets:agent>
+    <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="OTHER" OTHERROLE="layout/segmentation/region">
+      <mets:name>ocrd-tesserocr-segment v0.12.0</mets:name>
+    </mets:agent>
+    <mets:agent TYPE="OTHER" OTHERTYPE="SOFTWARE" ROLE="OTHER" OTHERROLE="layout/segmentation/region">
+      <mets:name>ocrd-eynollah-segment v0.0.5</mets:name>
+    </mets:agent>
   </mets:metsHdr>
   <mets:dmdSec ID="DMDLOG_0001">
     <mets:mdWrap MDTYPE="MODS">
@@ -27,17 +36,85 @@
         <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="OCR-D-IMG/NewsPaperWithAdsLayout-01.tif"/>
       </mets:file>
     </mets:fileGrp>
+    <mets:fileGrp USE="BIN">
+      <mets:file MIMETYPE="image/png" ID="BIN_0001-BIN_sauvola-ms-split">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0001-BIN_sauvola-ms-split.png"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="BIN_0001">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0001.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="image/png" ID="BIN_0002-BIN_sauvola-ms-split">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0002-BIN_sauvola-ms-split.png"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="BIN_0002">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0002.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="image/png" ID="BIN_0003-BIN_sauvola-ms-split">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0003-BIN_sauvola-ms-split.png"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="BIN_0003">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="BIN/BIN_0003.xml"/>
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp USE="SEG-OCRO">
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-OCRO_0001">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-OCRO/SEG-OCRO_0001.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-OCRO_0002">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-OCRO/SEG-OCRO_0002.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-OCRO_0003">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-OCRO/SEG-OCRO_0003.xml"/>
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp USE="SEG-TESS">
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-TESS_0001">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-TESS/SEG-TESS_0001.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-TESS_0002">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-TESS/SEG-TESS_0002.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-TESS_0003">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-TESS/SEG-TESS_0003.xml"/>
+      </mets:file>
+    </mets:fileGrp>
+    <mets:fileGrp USE="SEG-EYNOLLAH6">
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-EYNOLLAH6_0001">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-EYNOLLAH6/SEG-EYNOLLAH6_0001.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-EYNOLLAH6_0002">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-EYNOLLAH6/SEG-EYNOLLAH6_0002.xml"/>
+      </mets:file>
+      <mets:file MIMETYPE="application/vnd.prima.page+xml" ID="SEG-EYNOLLAH6_0003">
+        <mets:FLocat LOCTYPE="OTHER" OTHERLOCTYPE="FILE" xlink:href="SEG-EYNOLLAH6/SEG-EYNOLLAH6_0003.xml"/>
+      </mets:file>
+    </mets:fileGrp>
   </mets:fileSec>
   <mets:structMap TYPE="PHYSICAL">
     <mets:div TYPE="physSequence">
       <mets:div TYPE="page" ID="p0001">
         <mets:fptr FILEID="BadScan-01"/>
+        <mets:fptr FILEID="BIN_0001-BIN_sauvola-ms-split"/>
+        <mets:fptr FILEID="BIN_0001"/>
+        <mets:fptr FILEID="SEG-OCRO_0001"/>
+        <mets:fptr FILEID="SEG-TESS_0001"/>
+        <mets:fptr FILEID="SEG-EYNOLLAH6_0001"/>
       </mets:div>
       <mets:div TYPE="page" ID="p0002">
         <mets:fptr FILEID="DeWarp-Example-01"/>
+        <mets:fptr FILEID="BIN_0002-BIN_sauvola-ms-split"/>
+        <mets:fptr FILEID="BIN_0002"/>
+        <mets:fptr FILEID="SEG-OCRO_0002"/>
+        <mets:fptr FILEID="SEG-TESS_0002"/>
+        <mets:fptr FILEID="SEG-EYNOLLAH6_0002"/>
       </mets:div>
       <mets:div TYPE="page" ID="p0003">
         <mets:fptr FILEID="NewsPaperWithAdsLayout-01"/>
+        <mets:fptr FILEID="BIN_0003-BIN_sauvola-ms-split"/>
+        <mets:fptr FILEID="BIN_0003"/>
+        <mets:fptr FILEID="SEG-OCRO_0003"/>
+        <mets:fptr FILEID="SEG-TESS_0003"/>
+        <mets:fptr FILEID="SEG-EYNOLLAH6_0003"/>
       </mets:div>
     </mets:div>
   </mets:structMap>
