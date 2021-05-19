@@ -106,3 +106,67 @@ and call eynollah again with the `models` parameter set:
 ```sh
 ocrd-eynollah-segment -I OCR-D-IMG -O SEG-EYNOLLAH -P models default
 ```
+
+**NOTE:** Until [v0.0.5](https://github.com/qurator-spk/eynollah/releases/tag/v0.0.5) of eynollah, the `allow_enhancement` parameter was by default set to `true`, which led to inconsistent coordinates. If you are using an older version of eynollah, always explicitly disable that parameter, e.g.
+
+
+```sh
+ocrd-eynollah-segment -I OCR-D-IMG -O SEG-EYNOLLAH -P models default -P allow_enhancement false
+```
+
+This will take a few minutes, depending on whether a GPU is available.
+
+### Segmentation results
+
+Page 1:
+
+![](./jannik.franz/segmentation-p0001.png)
+
+Page 2:
+
+![](./jannik.franz/segmentation-p0002.png)
+
+Note that while the segmentation does a good job detecting the cells of the table, it does not produce
+a readily usable tabular structure, i.e. you do need to postprocess the results with heuristics
+to transform it into a true table.
+
+## Stefan von der Heide's samples
+
+
+
+### `ocrd-import` the images
+
+Create directory `OCR-D-IMG`, put the images there, import the files
+
+```sh
+mkdir OCR-D-IMG
+cp -t OCR-D-IMG BadScan-01.jpg DeWarp-Example-01.tif NewsPaperWithAdsLayout-01.tif
+ocrd-import
+```
+
+### Run workflow
+
+```sh
+ocrd process \
+  "cis-ocropy-binarize -I OCR-D-IMG -O OCR-D-BIN" \
+  "anybaseocr-crop -I OCR-D-BIN -O OCR-D-CROP" \
+  "skimage-denoise -I OCR-D-BIN -O OCR-D-BIN-DENOISE -P level-of-operation page" \
+  "tesserocr-deskew -I OCR-D-BIN-DENOISE -O OCR-D-BIN-DENOISE-DESKEW -P operation_level page" \
+  "tesserocr-segment -I OCR-D-BIN-DENOISE-DESKEW -O OCR-D-SEG -P shrink_polygons true" \
+  "cis-ocropy-dewarp -I OCR-D-SEG -O OCR-D-SEG-DEWARP" \
+  "tesserocr-recognize -I OCR-D-SEG-DEWARP -O OCR-D-OCR -P textequiv_level glyph -P overwrite_segments true -P model Fraktur_GT4HistOCR"
+```
+
+### Binarize the images
+
+```sh
+ocrd-olena-binarize -I OCR-D-IMG -O BIN
+```
+
+### Try different segmentations
+
+```sh
+ocrd-cis-ocropy-segment -I BIN -O SEG-OCRO
+ocrd-tesserocr-segment -I BIN -O SEG-TESS
+ocrd-eynollah-segment -I OCR-D-IMG -O SEG-EYNOLLAH
+```
